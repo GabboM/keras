@@ -5259,8 +5259,8 @@ def binary_crossentropy(target, output, from_logits=False):
   output = tf.clip_by_value(output, epsilon_, 1. - epsilon_)
 
   # Compute cross entropy from probabilities.
-  bce = target * tf.math.log(output + epsilon())
-  bce += (1 - target) * tf.math.log(1 - output + epsilon())
+  bce = target * tf.math.log(output)
+  bce += (1 - target) * tf.math.log(1 - output)
   return -bce
 
 
